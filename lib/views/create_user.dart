@@ -1,4 +1,5 @@
 import 'package:brasil_fields/brasil_fields.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -178,7 +179,36 @@ class _CreateUserFormState extends State<CreateUserForm> {
                             },
                             value: _checkBoxVal,
                           )),
-                          Text('Li e aceito os termos e condições.')
+                          Text('Li e aceito os'),
+                          TextButton(
+                              onPressed: () {
+                                showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) =>
+                                        AlertDialog(
+                                          title:
+                                              const Text('Termos e Condições'),
+                                          content: const Text(
+                                              'Aqui será adicionado os termos e condições para aceite do Usuário'),
+                                          actions: <Widget>[
+                                            TextButton(
+                                                onPressed: () => Navigator.pop(
+                                                    context, 'Cancelar'),
+                                                child: const Text('Cancelar')),
+                                            TextButton(
+                                              onPressed: () => Navigator.pop(
+                                                  context, _checkBoxVal),
+                                              child: const Text('Aceitar'),
+                                            ),
+                                          ],
+                                        ));
+                              },
+                              child: const Text(
+                                'Termos e condições.',
+                                style: TextStyle(
+                                    color: Colors.orange,
+                                    fontWeight: FontWeight.bold),
+                              )),
                         ],
                       ),
                       SizedBox(
@@ -190,23 +220,20 @@ class _CreateUserFormState extends State<CreateUserForm> {
                 ),
                 RaisedButton(
                   onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      if (_checkBoxVal == false) {
-                        showBottomSheet<String>(
-                          context: context,
-                          builder: (BuildContext context) => Container(
-                              decoration: const BoxDecoration(
-                                  border: Border(
-                                      top: BorderSide(color: Colors.black12)))),
-                        );
-                      }
+                    if (_formKey.currentState!.validate() &&
+                        _checkBoxVal == true) {
+                      Navigator.of(context).pushNamed('/');
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                         content: Text("Usuário Criado"),
                         backgroundColor: Colors.greenAccent,
                       ));
-                      Navigator.of(context).pushNamed('/');
-                    } else if (createPassword != confirmPassword ||
-                        _checkBoxVal == false) {}
+                    } else if (_formKey.currentState!.validate() &&
+                        _checkBoxVal == false) {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        content: Text("Aceite os termos e condições."),
+                        backgroundColor: Colors.black12,
+                      ));
+                    }
                   },
                   child: const Text("Criar Usuário"),
                   color: Colors.orange[600],
