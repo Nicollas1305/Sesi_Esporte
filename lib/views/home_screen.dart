@@ -9,7 +9,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  double _sliderVal = 1.0;
+  double _sliderVal = 0.0;
 
   @override
   Widget build(BuildContext contexts) {
@@ -28,8 +28,57 @@ class _HomeScreenState extends State<HomeScreen> {
               divisions: 10,
               label: '${_sliderVal.round()}',
               onChanged: (double value) {
-                setState(() => _sliderVal = value);
+                null;
               }),
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Card(
+              color: Colors.white38,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15.0),
+                  topRight: Radius.circular(15.0),
+                  bottomLeft: Radius.circular(15.0),
+                  bottomRight: Radius.circular(15.0),
+                ),
+              ),
+              child: SizedBox(
+                height: 100.0,
+                child: Row(
+                  children: const <Widget>[
+                    Expanded(
+                      child: Text('   Área destinada a notificações'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Card(
+              color: Colors.white38,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15.0),
+                  topRight: Radius.circular(15.0),
+                  bottomLeft: Radius.circular(15.0),
+                  bottomRight: Radius.circular(15.0),
+                ),
+              ),
+              child: SizedBox(
+                height: 100.0,
+                child: Row(
+                  children: const <Widget>[
+                    Expanded(
+                      child: Text('   Área destinada a notificações'),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
         ),
       ],
     );
