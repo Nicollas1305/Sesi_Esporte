@@ -196,8 +196,12 @@ class _CreateUserFormState extends State<CreateUserForm> {
                                                     context, 'Cancelar'),
                                                 child: const Text('Cancelar')),
                                             TextButton(
-                                              onPressed: () => Navigator.pop(
-                                                  context, _checkBoxVal),
+                                              onPressed: () {
+                                                setState(() {
+                                                  _checkBoxVal = true;
+                                                });
+                                                Navigator.pop(context);
+                                              },
                                               child: const Text('Aceitar'),
                                             ),
                                           ],
