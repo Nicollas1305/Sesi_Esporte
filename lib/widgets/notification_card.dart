@@ -9,7 +9,7 @@ Widget notificatioCard() {
       Padding(
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: Card(
-          color: Colors.white38,
+          color: Colors.orange,
           shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(15.0),

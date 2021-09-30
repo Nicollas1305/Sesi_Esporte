@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-DraggableScrollableSheet draggableScrollableSheet() {
+Widget draggableScrollableSheet() {
   return DraggableScrollableSheet(
     initialChildSize: 0.2,
     minChildSize: 0.2,

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sesi_esporte/views/historic.dart';
+import 'package:sesi_esporte/views/payments.dart';
+import 'package:sesi_esporte/views/settings.dart';
 
 import 'home_screen.dart';
 
@@ -16,11 +19,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final _kTabPages = <Widget>[
       const Center(child: HomeScreen()),
-      const Center(child: Icon(Icons.history, size: 64.0, color: Colors.cyan)),
+      const Center(child: Historic()),
+      const Center(child: CreditCardPage()),
       const Center(
-          child: Icon(Icons.payments_outlined, size: 64.0, color: Colors.blue)),
-      const Center(
-          child: Icon(Icons.settings_sharp, size: 64.0, color: Colors.blue)),
+          child: Settings(
+        email: 'Nicollas',
+      )),
     ];
     final _kBottmonNavBarItems = <BottomNavigationBarItem>[
       const BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Principal'),

@@ -81,6 +81,7 @@ class _CreateUserFormState extends State<CreateUserForm> {
                             prefixIcon: Icon(Icons.person_pin_sharp),
                             border: OutlineInputBorder(),
                             labelText: 'CPF'),
+                        keyboardType: TextInputType.number,
                       ),
                       SizedBox(
                         width: 30,
@@ -122,6 +123,7 @@ class _CreateUserFormState extends State<CreateUserForm> {
                             prefixIcon: Icon(Icons.phone),
                             border: OutlineInputBorder(),
                             labelText: 'Telefone'),
+                        keyboardType: TextInputType.number,
                       ),
                       SizedBox(
                         width: 30,
