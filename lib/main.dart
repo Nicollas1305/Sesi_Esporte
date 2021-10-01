@@ -3,7 +3,7 @@ import 'package:sesi_esporte/views/create_user.dart';
 import 'package:sesi_esporte/views/home_page.dart';
 import 'package:sesi_esporte/views/home_screen.dart';
 import 'package:sesi_esporte/views/login_page.dart';
-import 'package:sesi_esporte/views/payments.dart';
+import 'package:sesi_esporte/views/create_payments.dart';
 
 void main() {
   runApp(const MyApp());

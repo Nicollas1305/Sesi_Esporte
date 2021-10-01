@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sesi_esporte/views/historic.dart';
+import 'package:sesi_esporte/views/create_payments.dart';
 import 'package:sesi_esporte/views/payments.dart';
 import 'package:sesi_esporte/views/settings.dart';
 
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
     final _kTabPages = <Widget>[
       const Center(child: HomeScreen()),
       const Center(child: Historic()),
-      const Center(child: CreditCardPage()),
+      const Center(child: Payments()),
       const Center(
           child: Settings(
         email: 'Nicollas',

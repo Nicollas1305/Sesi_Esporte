@@ -85,11 +85,6 @@ class _LoginPageState extends State<LoginPage> {
                         if (email == 'Nicollas@gmail.com' &&
                             password == '12345') {
                           Navigator.of(context).pushNamed('/home');
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      Settings(email: email)));
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
