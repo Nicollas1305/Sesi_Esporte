@@ -15,11 +15,12 @@ class _HistoricState extends State<Historic> {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            CardBeachTennis(),
-            cardSocietySoccer(),
+            //CardBeachTennis(),
+            //cardSocietySoccer(),
+            Image.asset('assets/images/card.png'),
           ],
         ),
       ),

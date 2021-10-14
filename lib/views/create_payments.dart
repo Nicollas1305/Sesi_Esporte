@@ -28,7 +28,7 @@ class CreditCardPageState extends State<CreditCardPage> {
       body: SafeArea(
         child: Column(
           children: <Widget>[
-            /*CreditCardWidget(
+            CreditCardWidget(
               cardBgColor: Colors.black87,
               cardNumber: cardNumber,
               expiryDate: expiryDate,
@@ -38,7 +38,7 @@ class CreditCardPageState extends State<CreditCardPage> {
               obscureCardNumber: true,
               obscureCardCvv: true,
               onCreditCardWidgetChange: (CreditCardBrand) {},
-            ),*/
+            ),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(

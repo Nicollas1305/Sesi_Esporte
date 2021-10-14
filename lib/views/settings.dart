@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:sesi_esporte/widgets/draggble_scrollable_sheet.dart';
+import 'package:flutter_settings_screens/flutter_settings_screens.dart';
+import 'package:sesi_esporte/views/account_page.dart';
+import 'package:sesi_esporte/views/login_page.dart';
 
 class Settings extends StatefulWidget {
   final String email;
@@ -11,25 +13,105 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Text('Text exemple'),
-          account(),
-          myLayoutWidget(),
-        ],
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Scaffold(
+        body: SafeArea(
+          child: ListView(
+            padding: EdgeInsets.all(20),
+            children: [
+              SettingsGroup(
+                title: 'Geral',
+                children: <Widget>[
+                  Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
+                    margin: const EdgeInsets.all(8),
+                    color: Colors.orange,
+                    child: ListTile(
+                      onTap: () {},
+                      title: const Text(
+                        'Nicollas Marinho',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      leading: const CircleAvatar(
+                        backgroundImage: NetworkImage(
+                            "https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2021%2F0607%2Fr864237_1296x729_16%2D9.jpg"),
+                      ),
+                    ),
+                  ),
+                  AccountPage(),
+                  buildNotifications(),
+                  buildTheme(),
+                  buildFeedback(),
+                  buildLogout(),
+                ],
+              ),
+            ],
+          ),
+        ),
+      );
 }
 
-Widget account() {
-  return Row(
-    children: const [Text('defefefefefefefefeee')],
+Widget buildLogout() {
+  return SimpleSettingsTile(
+    title: 'logout',
+    subtitle: '',
+    leading: const Icon(
+      Icons.logout,
+      color: Colors.orange,
+    ),
+    onTap: () {},
   );
 }
 
+Widget buildDeteleAccout() {
+  return SimpleSettingsTile(
+    title: 'Deletar conta',
+    subtitle: '',
+    leading: const Icon(
+      Icons.delete,
+      color: Colors.orange,
+    ),
+    onTap: () {},
+  );
+}
+
+Widget buildTheme() {
+  return SimpleSettingsTile(
+    title: 'Tema',
+    subtitle: '',
+    leading: const Icon(
+      Icons.dark_mode,
+      color: Colors.orange,
+    ),
+    onTap: () {},
+  );
+}
+
+Widget buildNotifications() {
+  return SimpleSettingsTile(
+    title: 'Notificações',
+    subtitle: '',
+    leading: const Icon(
+      Icons.notifications,
+      color: Colors.orange,
+    ),
+    onTap: () {},
+  );
+}
+
+Widget buildFeedback() {
+  return SimpleSettingsTile(
+    title: 'Ajuda e Sujestões',
+    subtitle: '',
+    leading: const Icon(
+      Icons.support_agent,
+      color: Colors.orange,
+    ),
+    onTap: () {},
+  );
+}
+
+/*
 Widget myLayoutWidget() {
   // wrap everything in a purple container
   return Container(
@@ -100,3 +182,4 @@ Widget myLayoutWidget() {
     ),
   );
 }
+*/
