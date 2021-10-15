@@ -10,12 +10,11 @@ Widget cardSocietySoccer() {
       clipBehavior: Clip.antiAlias,
       child: Column(
         children: [
-          ListTile(
-            leading: const Icon(Icons.sports_soccer),
-            title: const Text('Aluguel Campo Society'),
+          const ListTile(
+            leading: Icon(Icons.sports_soccer),
+            title: Text('Aluguel Campo Society'),
             subtitle: Text(
               '19/11/2021',
-              style: TextStyle(color: Colors.black.withOpacity(0.6)),
             ),
           ),
           /**Padding(

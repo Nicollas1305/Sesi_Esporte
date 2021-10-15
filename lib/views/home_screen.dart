@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:sesi_esporte/widgets/cards/card_society_soccer_field.dart';
 import 'package:sesi_esporte/widgets/notification_card.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -56,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
 Widget draggableScrollableSheet() {
   return DraggableScrollableSheet(
-    initialChildSize: 0.2,
+    initialChildSize: 0.3,
     minChildSize: 0.2,
     maxChildSize: 0.7,
     builder: (BuildContext context, ScrollController scrollController) {
@@ -71,9 +72,9 @@ Widget draggableScrollableSheet() {
         child: Scrollbar(
           child: ListView.builder(
             controller: scrollController,
-            itemCount: 10,
+            itemCount: 1,
             itemBuilder: (BuildContext context, int index) {
-              return notificatioCard();
+              return cardSocietySoccer();
             },
           ),
         ),

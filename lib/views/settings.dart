@@ -22,27 +22,49 @@ class _SettingsState extends State<Settings> {
                 title: 'Geral',
                 children: <Widget>[
                   Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    margin: const EdgeInsets.all(8),
-                    color: Colors.orange,
-                    child: ListTile(
-                      onTap: () {},
-                      title: const Text(
-                        'Nicollas Marinho',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      leading: const CircleAvatar(
-                        backgroundImage: NetworkImage(
-                            "https://lh3.googleusercontent.com/0PHBOQVFW_J5SULcEva_AcxsRzn06HAmO3v3zoSm5YaBtn6e08k5HS3Xtfi_Hytq0s_I5AOmi7ZYjdX_CEUhw3zTMFrYDwSEA9N1TS1tCVo3Vsy36vCbcdPVX616kINlTPBJS9FBX38qIBPkT6P4_AR70uTyXMBOj85s0jTM4WD-HVuHMnPLlk3NTj-HBVyzXZpF1zKufqk5Su8wi4tGM8Ym5vGWyrFsU5kiKHLdTD-fm7AgNzmM6fcWwvdrfRWeNkf08vA3pnucWyVFjDTZ03VsrWoiD5bjl7DrW0hkIBS0qW5hOO_-blGtkEBOGDKq_F3byeBHai2V0EJlH48ENvgUNmnA-rTY2vv65lCY4xMt0wUviZOcwx3_YKr4C1TgmXiRnlsAbhJm0yOI0SAd50Hh2AK67qRsZ4qpa92ek2fHop_QMAwkfQAsKqpqErH-6QfkgReNANvqnnUzpoLLYnzzP17TWgMKn8wPWbk5_8spBwPtLiO189716M5Ph39NWO2FtqlhGl1taypHL2FU61Jl-wSVhRdMjelNmdDLOWel75tS711T0oFo00mO6olwN7HgOWb8cmHwREVOUDrX1r1GxjaxD6PuPkIPadQsuRWTOYcKpRC1ptf1An4SpGCyTpDxy1oluflR7cL54dhcNqFgsYR6Yh-Mr0ekgJhz1tOF7XYI-7Lr4hPcIUqsBaPOJTwpAzDciIFshWQ7Yox3CirKAA=w258-h251-no?authuser=0"),
+                    child: Container(
+                      padding: const EdgeInsets.all(8),
+                      //height: 200,
+                      child: ListTile(
+                        leading: GestureDetector(
+                          onTap: () => _showSecondPage(context),
+                          child: const Hero(
+                            tag: 'profile-image-tag',
+                            child: CircleAvatar(
+                              radius: 30,
+                              backgroundImage: NetworkImage(
+                                "https://lh3.googleusercontent.com/eH99aVaZyj3wswnAaW7ttaAMq1wHvY02mwEmXQOiP2DnrTa5k-hRMM2EpLkIw0QkyXASNV7DRra0glq310IEHpKkwB3qT7iIZHGShSOjNk3aDja5rF2ny-tt04CN-neNzpomCwxZE12HDtHMk4Sj23a_x4v9Qf9U5sBUtWLWdbqoQr7su5l3u7e3gEPXwADGHQ6m0g70vreIbz3YiXn_3draWPS_Y0wvTq3u_-roUHPj5JGaZyvERk0uP_W4vTsU7SrkRNAgGwl4sr5NMpGvv97I-sF2s0MD7tFbnXicq9xFLehb-g_EXlcGc9PxOAE7MUrmuDoSUYi6yMOyHzlZ4lCA0y1IzBL3w5N0lx7BNZ4PxRImIBf08j5y5tKwK-WvLBZQwjKR68DOOBX6hRgTcXvGHrnD9Lc5pK2oKfLV1Ko_1q6da9hngAazEFQ-gm-ww_JfVg7XzfUP091UZ9D5mm35rZS3xfrk3j7LxlYUEqIVhfJx7MzNcnRKQm5gZF-ya8MdVPv9bSNCrlqepLrDJp8OJAJ2P33IzHHBgTtD9Aot2Lr254nigbX22rBjyGwA1CtdzTLTKgqOgJd2HHSL2jyIPyvxIg1WTjrf1isJXAjM_GFWucv6rmj7rbxMT4uZs23g3U8xqlXv735ztlWnU7c0AQIrAmRwFLL_KinHEmOdL37bRMATRhN7UWKUZbZReN8UdI5ZrDTMy6Tf1j6SoFyOjw=w258-h251-no?authuser=0",
+                              ),
+                            ),
+                          ),
+                        ),
+                        title: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: const [
+                            Text(
+                              "Nicollas Marinho",
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              "Nicollas@gmail.com",
+                              style: TextStyle(
+                                fontSize: 13,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                  AccountPage(),
+                  const AccountPage(),
                   buildNotifications(),
                   //buildTheme(context),
                   SwitchListTile(
-                      title: Text('Tema'),
+                      title: const Text('Tema'),
                       secondary:
                           const Icon(Icons.dark_mode, color: Colors.orange),
                       value: DarkController.instance.isDarkMode,
@@ -58,6 +80,23 @@ class _SettingsState extends State<Settings> {
           ),
         ),
       );
+
+  void _showSecondPage(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (ctx) => Scaffold(
+          body: Center(
+            child: Hero(
+              tag: 'profile-image-tag',
+              child: Image.network(
+                "https://lh3.googleusercontent.com/eH99aVaZyj3wswnAaW7ttaAMq1wHvY02mwEmXQOiP2DnrTa5k-hRMM2EpLkIw0QkyXASNV7DRra0glq310IEHpKkwB3qT7iIZHGShSOjNk3aDja5rF2ny-tt04CN-neNzpomCwxZE12HDtHMk4Sj23a_x4v9Qf9U5sBUtWLWdbqoQr7su5l3u7e3gEPXwADGHQ6m0g70vreIbz3YiXn_3draWPS_Y0wvTq3u_-roUHPj5JGaZyvERk0uP_W4vTsU7SrkRNAgGwl4sr5NMpGvv97I-sF2s0MD7tFbnXicq9xFLehb-g_EXlcGc9PxOAE7MUrmuDoSUYi6yMOyHzlZ4lCA0y1IzBL3w5N0lx7BNZ4PxRImIBf08j5y5tKwK-WvLBZQwjKR68DOOBX6hRgTcXvGHrnD9Lc5pK2oKfLV1Ko_1q6da9hngAazEFQ-gm-ww_JfVg7XzfUP091UZ9D5mm35rZS3xfrk3j7LxlYUEqIVhfJx7MzNcnRKQm5gZF-ya8MdVPv9bSNCrlqepLrDJp8OJAJ2P33IzHHBgTtD9Aot2Lr254nigbX22rBjyGwA1CtdzTLTKgqOgJd2HHSL2jyIPyvxIg1WTjrf1isJXAjM_GFWucv6rmj7rbxMT4uZs23g3U8xqlXv735ztlWnU7c0AQIrAmRwFLL_KinHEmOdL37bRMATRhN7UWKUZbZReN8UdI5ZrDTMy6Tf1j6SoFyOjw=w258-h251-no?authuser=0",
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 Widget buildNotifications() {

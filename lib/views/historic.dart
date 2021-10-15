@@ -18,9 +18,9 @@ class _HistoricState extends State<Historic> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            //CardBeachTennis(),
-            //cardSocietySoccer(),
-            Image.asset('assets/images/card.png'),
+            CardBeachTennis(),
+            cardSocietySoccer(),
+            //Image.asset('assets/images/card.png'),
           ],
         ),
       ),

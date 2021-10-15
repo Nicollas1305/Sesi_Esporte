@@ -19,12 +19,11 @@ class _CardBeachTennisState extends State<CardBeachTennis> {
         clipBehavior: Clip.antiAlias,
         child: Column(
           children: [
-            ListTile(
-              leading: const Icon(Icons.sports_tennis),
-              title: const Text('Aula Beach Tennis'),
+            const ListTile(
+              leading: Icon(Icons.sports_tennis),
+              title: Text('Aula Beach Tennis'),
               subtitle: Text(
                 '15/11/2021',
-                style: TextStyle(color: Colors.black.withOpacity(0.6)),
               ),
             ),
             ButtonBar(
