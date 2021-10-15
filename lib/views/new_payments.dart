@@ -24,116 +24,116 @@ class PaymentsState extends State<Payments> {
 
   @override
   Widget build(BuildContext context) {
-    return SimpleSettingsTile(
-      title: 'Cartão de Crédito',
-      subtitle: '',
-      leading: const Icon(
-        FontAwesomeIcons.creditCard,
-        color: Colors.orange,
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.white,
-        resizeToAvoidBottomInset: true,
-        body: SafeArea(
-          child: Column(
-            children: <Widget>[
-              const SizedBox(
-                height: 25,
+    return Scaffold(
+      backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: true,
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            const SizedBox(
+              height: 25,
+            ),
+            CreditCardWidget(
+              cardBgColor: Colors.black87,
+              cardNumber: cardNumber,
+              expiryDate: expiryDate,
+              cardHolderName: cardHolderName,
+              cvvCode: cvvCode,
+              showBackView: isCvvFocused,
+              obscureCardNumber: true,
+              obscureCardCvv: true,
+              onCreditCardWidgetChange: (CreditCardBrand) {},
+            ),
+            CreditCardForm(
+              formKey: formKey,
+              onCreditCardModelChange: onCreditCardModelChange,
+              obscureCvv: true,
+              obscureNumber: true,
+              cardNumberDecoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Número',
+                hintText: 'XXXX XXXX XXXX XXXX',
               ),
-              CreditCardWidget(
-                cardBgColor: Colors.black87,
-                cardNumber: cardNumber,
-                expiryDate: expiryDate,
-                cardHolderName: cardHolderName,
-                cvvCode: cvvCode,
-                showBackView: isCvvFocused,
-                obscureCardNumber: true,
-                obscureCardCvv: true,
-                onCreditCardWidgetChange: (CreditCardBrand) {},
+              expiryDateDecoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Data de Expiração',
+                hintText: 'XX/XX',
               ),
-              CreditCardForm(
-                formKey: formKey,
-                onCreditCardModelChange: onCreditCardModelChange,
-                obscureCvv: true,
-                obscureNumber: true,
-                cardNumberDecoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Número',
-                  hintText: 'XXXX XXXX XXXX XXXX',
-                ),
-                expiryDateDecoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Data de Expiração',
-                  hintText: 'XX/XX',
-                ),
-                cvvCodeDecoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'CVV',
-                  hintText: 'XXX',
-                ),
-                cardHolderDecoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Card Holder Name',
-                ),
-                themeColor: Colors.black45,
-                cardHolderName: '',
-                cvvCode: '',
-                cardNumber: '',
-                expiryDate: '',
+              cvvCodeDecoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'CVV',
+                hintText: 'XXX',
               ),
-              SizedBox(
-                height: 20,
+              cardHolderDecoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Nome Completo',
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  RaisedButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    child: Container(
-                      margin: const EdgeInsets.all(8),
-                      child: const Text(
-                        'Cancelar',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ),
-                    color: Colors.orange[600],
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
+              themeColor: Colors.black45,
+              cardHolderName: '',
+              cvvCode: '',
+              cardNumber: '',
+              expiryDate: '',
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
-                  RaisedButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    child: Container(
-                      margin: const EdgeInsets.all(8),
-                      child: const Text(
-                        'Criar',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                        ),
+                  child: Container(
+                    margin: const EdgeInsets.all(8),
+                    child: const Text(
+                      'Cancelar',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
                       ),
                     ),
-                    color: Colors.orange[600],
-                    onPressed: () {
-                      if (formKey.currentState!.validate()) {
-                        print('valid!');
-                      } else {
-                        print('invalid!');
-                      }
-                    },
-                  )
-                ],
-              )
-            ],
-          ),
+                  ),
+                  color: Colors.orange[600],
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                RaisedButton(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  child: Container(
+                    margin: const EdgeInsets.all(8),
+                    child: const Text(
+                      'Criar',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                      ),
+                    ),
+                  ),
+                  color: Colors.orange[600],
+                  onPressed: () {
+                    if (formKey.currentState!.validate()) {
+                      print('valid!');
+                      Navigator.pop(context);
+                      Navigator.pop(context);
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Cartão Criado"),
+                          backgroundColor: Colors.greenAccent,
+                        ),
+                      );
+                    } else {
+                      print('invalid!');
+                    }
+                  },
+                )
+              ],
+            )
+          ],
         ),
       ),
     );

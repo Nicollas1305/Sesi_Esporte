@@ -1,6 +1,8 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:sesi_esporte/views/account_page.dart';
+import 'package:sesi_esporte/views/dark_controller.dart';
 import 'package:sesi_esporte/views/login_page.dart';
 
 class Settings extends StatefulWidget {
@@ -40,51 +42,24 @@ class _SettingsState extends State<Settings> {
                   ),
                   AccountPage(),
                   buildNotifications(),
-                  buildTheme(),
+                  //buildTheme(context),
+                  SwitchListTile(
+                      title: Text('Tema'),
+                      secondary:
+                          const Icon(Icons.dark_mode, color: Colors.orange),
+                      value: DarkController.instance.isDarkMode,
+                      onChanged: (value) {
+                        setState(() {});
+                        DarkController.instance.changeTheme();
+                      }),
                   buildFeedback(),
-                  buildLogout(),
+                  buildLogout(context),
                 ],
               ),
             ],
           ),
         ),
       );
-}
-
-Widget buildLogout() {
-  return SimpleSettingsTile(
-    title: 'logout',
-    subtitle: '',
-    leading: const Icon(
-      Icons.logout,
-      color: Colors.orange,
-    ),
-    onTap: () {},
-  );
-}
-
-Widget buildDeteleAccout() {
-  return SimpleSettingsTile(
-    title: 'Deletar conta',
-    subtitle: '',
-    leading: const Icon(
-      Icons.delete,
-      color: Colors.orange,
-    ),
-    onTap: () {},
-  );
-}
-
-Widget buildTheme() {
-  return SimpleSettingsTile(
-    title: 'Tema',
-    subtitle: '',
-    leading: const Icon(
-      Icons.dark_mode,
-      color: Colors.orange,
-    ),
-    onTap: () {},
-  );
 }
 
 Widget buildNotifications() {
@@ -111,6 +86,17 @@ Widget buildFeedback() {
   );
 }
 
+Widget buildLogout(context) {
+  return SimpleSettingsTile(
+    title: 'logout',
+    subtitle: '',
+    leading: const Icon(
+      Icons.logout,
+      color: Colors.orange,
+    ),
+    onTap: () {},
+  );
+}
 /*
 Widget myLayoutWidget() {
   // wrap everything in a purple container

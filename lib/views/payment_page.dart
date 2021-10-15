@@ -29,6 +29,9 @@ class PaymentPage extends StatelessWidget {
               color: Colors.orange[600],
               textColor: Colors.white,
             ),
+            const SizedBox(
+              height: 15,
+            )
           ],
         ),
       ),
@@ -42,19 +45,37 @@ Widget Payment(context) {
       padding: const EdgeInsets.only(left: 20),
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Payments(),
             SimpleSettingsTile(
-              title: 'Cartão de Débito',
+              title: 'Cartão de Crédito',
               subtitle: '',
-              leading: Icon(
+              leading: const Icon(
                 FontAwesomeIcons.creditCard,
                 color: Colors.orange,
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Payments()),
+                );
+              },
+            ),
+            SimpleSettingsTile(
+              title: 'Cartão de Débito',
+              subtitle: '',
+              leading: const Icon(
+                FontAwesomeIcons.creditCard,
+                color: Colors.orange,
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Payments()),
+                );
+              },
             ),
             SimpleSettingsTile(
               title: 'Pix',

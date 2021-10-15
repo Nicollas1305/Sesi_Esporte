@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sesi_esporte/views/dark_controller.dart';
 import 'package:sesi_esporte/views/historic.dart';
 import 'package:sesi_esporte/views/create_payments.dart';
 import 'package:sesi_esporte/views/new_payments.dart';
@@ -49,15 +50,30 @@ class _HomePageState extends State<HomePage> {
         });
       },
     );
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.orange,
-          title: Center(child: Text('Sesi Esporte')),
-        ),
-        body: _kTabPages[_currentTabIndex],
-        bottomNavigationBar: bottomNavBar,
-      ),
+    return AnimatedBuilder(
+      animation: DarkController.instance,
+      builder: (context, child) {
+        return MaterialApp(
+          theme: ThemeData(
+            //primaryColor: Colors.orange,
+            brightness: DarkController.instance.isDarkMode
+                ? Brightness.dark
+                : Brightness.light,
+            primarySwatch: Colors.orange,
+          ),
+          home: Scaffold(
+            appBar: AppBar(
+              title: const Center(
+                  child: Text(
+                'Sesi Esporte',
+                style: TextStyle(color: Colors.white),
+              )),
+            ),
+            body: _kTabPages[_currentTabIndex],
+            bottomNavigationBar: bottomNavBar,
+          ),
+        );
+      },
     );
   }
 }
