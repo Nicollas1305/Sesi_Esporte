@@ -24,10 +24,7 @@ class _HomePageState extends State<HomePage> {
       const Center(child: HomeScreen()),
       const Center(child: Historic()),
       const Center(child: PaymentPage()),
-      const Center(
-          child: Settings(
-        email: 'Nicollas',
-      )),
+      const Center(child: Settings()),
     ];
     final _kBottmonNavBarItems = <BottomNavigationBarItem>[
       const BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Principal'),
@@ -55,7 +52,6 @@ class _HomePageState extends State<HomePage> {
       builder: (context, child) {
         return MaterialApp(
           theme: ThemeData(
-            //primaryColor: Colors.orange,
             brightness: DarkController.instance.isDarkMode
                 ? Brightness.dark
                 : Brightness.light,

@@ -57,10 +57,8 @@ Widget Payment(context) {
                 color: Colors.orange,
               ),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Payments()),
-                );
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Payments()));
               },
             ),
             SimpleSettingsTile(
@@ -73,7 +71,7 @@ Widget Payment(context) {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const Payments()),
+                  MaterialPageRoute(builder: (context) => Payments()),
                 );
               },
             ),

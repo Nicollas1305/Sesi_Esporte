@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:sesi_esporte/views/account_page.dart';
@@ -6,8 +5,7 @@ import 'package:sesi_esporte/views/dark_controller.dart';
 import 'package:sesi_esporte/views/login_page.dart';
 
 class Settings extends StatefulWidget {
-  final String email;
-  const Settings({Key? key, required this.email}) : super(key: key);
+  const Settings({Key? key}) : super(key: key);
 
   @override
   _SettingsState createState() => _SettingsState();
@@ -36,7 +34,7 @@ class _SettingsState extends State<Settings> {
                       ),
                       leading: const CircleAvatar(
                         backgroundImage: NetworkImage(
-                            "https://a.espncdn.com/combiner/i?img=%2Fphoto%2F2021%2F0607%2Fr864237_1296x729_16%2D9.jpg"),
+                            "https://lh3.googleusercontent.com/0PHBOQVFW_J5SULcEva_AcxsRzn06HAmO3v3zoSm5YaBtn6e08k5HS3Xtfi_Hytq0s_I5AOmi7ZYjdX_CEUhw3zTMFrYDwSEA9N1TS1tCVo3Vsy36vCbcdPVX616kINlTPBJS9FBX38qIBPkT6P4_AR70uTyXMBOj85s0jTM4WD-HVuHMnPLlk3NTj-HBVyzXZpF1zKufqk5Su8wi4tGM8Ym5vGWyrFsU5kiKHLdTD-fm7AgNzmM6fcWwvdrfRWeNkf08vA3pnucWyVFjDTZ03VsrWoiD5bjl7DrW0hkIBS0qW5hOO_-blGtkEBOGDKq_F3byeBHai2V0EJlH48ENvgUNmnA-rTY2vv65lCY4xMt0wUviZOcwx3_YKr4C1TgmXiRnlsAbhJm0yOI0SAd50Hh2AK67qRsZ4qpa92ek2fHop_QMAwkfQAsKqpqErH-6QfkgReNANvqnnUzpoLLYnzzP17TWgMKn8wPWbk5_8spBwPtLiO189716M5Ph39NWO2FtqlhGl1taypHL2FU61Jl-wSVhRdMjelNmdDLOWel75tS711T0oFo00mO6olwN7HgOWb8cmHwREVOUDrX1r1GxjaxD6PuPkIPadQsuRWTOYcKpRC1ptf1An4SpGCyTpDxy1oluflR7cL54dhcNqFgsYR6Yh-Mr0ekgJhz1tOF7XYI-7Lr4hPcIUqsBaPOJTwpAzDciIFshWQ7Yox3CirKAA=w258-h251-no?authuser=0"),
                       ),
                     ),
                   ),

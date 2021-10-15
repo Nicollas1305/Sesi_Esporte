@@ -17,12 +17,12 @@ class MyApp extends StatelessWidget {
       /*theme: ThemeData(
         //primaryColor: Colors.black,
       ),*/
-      initialRoute: '/home',
+      initialRoute: '/login',
       routes: {
         '/login': (context) => const LoginPage(),
         '/createuser': (context) => const CreateUserForm(),
         '/home': (context) => const HomePage(),
-        '/newpayment': (context) => const Payments()
+        '/newpayment': (context) => Payments()
       },
     );
   }

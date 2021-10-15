@@ -6,26 +6,24 @@ import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Payments extends StatefulWidget {
-  const Payments({Key? key}) : super(key: key);
+  Payments({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    return PaymentsState();
-  }
+  State<Payments> createState() => _PaymentsState();
 }
 
-class PaymentsState extends State<Payments> {
+class _PaymentsState extends State<Payments> {
   String cardNumber = '';
   String expiryDate = '';
   String cardHolderName = '';
   String cvvCode = '';
   bool isCvvFocused = false;
+
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Column(
@@ -68,7 +66,7 @@ class PaymentsState extends State<Payments> {
                 border: OutlineInputBorder(),
                 labelText: 'Nome Completo',
               ),
-              themeColor: Colors.black45,
+              themeColor: Colors.orange,
               cardHolderName: '',
               cvvCode: '',
               cardNumber: '',
