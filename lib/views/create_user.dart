@@ -25,9 +25,18 @@ class _CreateUserFormState extends State<CreateUserForm> {
 
   final _formKey = GlobalKey<FormState>();
 
+  final ButtonStyle style = ElevatedButton.styleFrom(
+    onPrimary: Colors.white,
+    textStyle: const TextStyle(
+      fontSize: 15,
+    ),
+    fixedSize: const Size(150, 40),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF063970),
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
@@ -44,6 +53,7 @@ class _CreateUserFormState extends State<CreateUserForm> {
                         onChanged: (text) {
                           nomeUsuario = text;
                         },
+                        style: const TextStyle(color: Colors.white),
                         validator: (nomeUsuario) {
                           if (nomeUsuario == null || nomeUsuario.isEmpty) {
                             return 'Preencha o campo nome ';
@@ -65,6 +75,7 @@ class _CreateUserFormState extends State<CreateUserForm> {
                         onChanged: (text) {
                           cpf = text;
                         },
+                        style: const TextStyle(color: Colors.white),
                         validator: (cpf) {
                           if (!GetUtils.isCpf(cpf) ||
                               cpf == null ||
@@ -91,6 +102,7 @@ class _CreateUserFormState extends State<CreateUserForm> {
                         onChanged: (text) {
                           email = text;
                         },
+                        style: const TextStyle(color: Colors.white),
                         validator: (email) =>
                             email!.isEmpty || !email.contains('@')
                                 ? "Email inválido"
@@ -109,6 +121,7 @@ class _CreateUserFormState extends State<CreateUserForm> {
                         onChanged: (text) {
                           telefone = text;
                         },
+                        style: const TextStyle(color: Colors.white),
                         validator: (telefone) {
                           if (telefone == null || telefone.isEmpty) {
                             return 'Campo obrigatório';
@@ -133,6 +146,7 @@ class _CreateUserFormState extends State<CreateUserForm> {
                         onChanged: (text) {
                           createPassword = text;
                         },
+                        style: const TextStyle(color: Colors.white),
                         validator: (createPassword) {
                           if (createPassword == null ||
                               createPassword.isEmpty) {
@@ -154,6 +168,7 @@ class _CreateUserFormState extends State<CreateUserForm> {
                         onChanged: (text) {
                           confirmPassword = text;
                         },
+                        style: const TextStyle(color: Colors.white),
                         validator: (confirmPassword) {
                           if (confirmPassword != createPassword) {
                             return 'As senhas não conferem';
@@ -217,33 +232,87 @@ class _CreateUserFormState extends State<CreateUserForm> {
                               )),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 30,
                         height: 30,
                       ),
                     ],
                   ),
                 ),
-                RaisedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate() &&
-                        _checkBoxVal == true) {
-                      Navigator.of(context).pushNamed('/');
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text("Usuário Criado"),
-                        backgroundColor: Colors.greenAccent,
-                      ));
-                    } else if (_formKey.currentState!.validate() &&
-                        _checkBoxVal == false) {
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                        content: Text("Aceite os termos e condições."),
-                        backgroundColor: Colors.black12,
-                      ));
-                    }
-                  },
-                  child: const Text("Criar Usuário"),
-                  color: Colors.orange[600],
-                  textColor: Colors.white,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    ElevatedButton(
+                      style: style,
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('Cancelar'),
+                    ),
+                    const SizedBox(
+                      width: 35,
+                    ),
+                    ElevatedButton(
+                      style: style,
+                      onPressed: () {
+                        if (_formKey.currentState!.validate() &&
+                            _checkBoxVal == true) {
+                          Navigator.of(context).pushNamed('/');
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text("Usuário Criado"),
+                            backgroundColor: Colors.greenAccent,
+                          ));
+                        } else if (_formKey.currentState!.validate() &&
+                            _checkBoxVal == false) {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text("Aceite os termos e condições."),
+                            backgroundColor: Colors.black12,
+                          ));
+                        }
+                      },
+                      child: Text('Criar Usuário'),
+                    ),
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    /*RaisedButton(
+                      onPressed: () {},
+                      child: const Text("Cancelar"),
+                      color: Colors.orange[600],
+                      textColor: Colors.white,
+                    ),
+                    const SizedBox(
+                      width: 35,
+                    ),
+                    RaisedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate() &&
+                            _checkBoxVal == true) {
+                          Navigator.of(context).pushNamed('/');
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text("Usuário Criado"),
+                            backgroundColor: Colors.greenAccent,
+                          ));
+                        } else if (_formKey.currentState!.validate() &&
+                            _checkBoxVal == false) {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            content: Text("Aceite os termos e condições."),
+                            backgroundColor: Colors.black12,
+                          ));
+                        }
+                      },
+                      child: const Text("Criar Usuário"),
+                      color: Colors.orange[600],
+                      textColor: Colors.white,
+                    ),*/
+                  ],
                 ),
               ],
             ),

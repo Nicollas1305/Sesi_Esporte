@@ -19,11 +19,10 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
+              buttonTheme: ButtonThemeData(),
               brightness: DarkController.instance.isDarkMode
                   ? Brightness.dark
                   : Brightness.light,
-              //scaffoldBackgroundColor: const Color(0xFF063970),
-              //primaryColor: Colors.white,
               primarySwatch: Colors.orange,
               hintColor: Colors.black,
             ),

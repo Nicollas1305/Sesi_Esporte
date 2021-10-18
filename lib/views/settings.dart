@@ -16,7 +16,7 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) => Scaffold(
         body: SafeArea(
           child: ListView(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             children: [
               SettingsGroup(
                 title: 'Geral',
@@ -32,9 +32,8 @@ class _SettingsState extends State<Settings> {
                             tag: 'profile-image-tag',
                             child: CircleAvatar(
                               radius: 30,
-                              backgroundImage: NetworkImage(
-                                "https://lh3.googleusercontent.com/DcLTPCvpaHOXmTDISS8ZW1aNYHia-9kTyfQPFNgFnj0xpt8ohwuqHFM6XMRqCjc7f5b6-1oXsi7mitqFmyh2WlEkDSx0l1U7ZT_vvvXxMv9Yj_al4eQuSuCAqryPv8NJd7ebEZ1HVKJe9qA2fMuYcmVeDijp5pp4LlF8wu6LuWThuKc3ucp7JY1W6CBHz0NaZpKrYMD-qq3R5wTrG1RJNP2rmbGmAvjiyGFJmavo15SRMv7gkLaa9tuT9wZHHdoOBZFEwcCJSyynJhMAzX9HrT_sY_KkE1r9UGKDp32JX0DaLO0OtEgjXVZFDebHqOKrGEtoGQTnJsDR4IiELOIfl8OyciN7E5vsuH4HX58Q2Zgfxz6pbNOpzNLF8C33_h4CkjFonhMGj77BrdDISyek2fUPsVexNdys9emjfwiuUZlpHYwrfpXkbQAgJuQR5-tcuAcRyHn_GMAMltHe3nR3_7B8nMO-e1v52TkBHg7rVhq_JBF064R9YqyPUw5iYsNBhfq2L2JYVLNii7kk_93kFQiDBF1n7r7_kwbqubpYCLZ7s6G90BxXNCyDUbMn0UXgaDxDqvSlV8pMuXzEynLSN-2_GKseFOQkdAm1O0YO3ibKtiuUKH08Pgr0ZhTj0ZoFD3zBBBEI1HmkbLOi7y7ZXfrjteSomz-Qdf69pMBaiq7Rr117g7HFZRbzQMEzwlGBUNmX-dtD8iBqCxjZYhWvCHeF=w258-h251-no?authuser=0",
-                              ),
+                              backgroundImage:
+                                  AssetImage('assets/images/profile.jpg'),
                             ),
                           ),
                         ),
@@ -87,9 +86,7 @@ class _SettingsState extends State<Settings> {
           body: Center(
             child: Hero(
               tag: 'profile-image-tag',
-              child: Image.network(
-                "https://lh3.googleusercontent.com/DcLTPCvpaHOXmTDISS8ZW1aNYHia-9kTyfQPFNgFnj0xpt8ohwuqHFM6XMRqCjc7f5b6-1oXsi7mitqFmyh2WlEkDSx0l1U7ZT_vvvXxMv9Yj_al4eQuSuCAqryPv8NJd7ebEZ1HVKJe9qA2fMuYcmVeDijp5pp4LlF8wu6LuWThuKc3ucp7JY1W6CBHz0NaZpKrYMD-qq3R5wTrG1RJNP2rmbGmAvjiyGFJmavo15SRMv7gkLaa9tuT9wZHHdoOBZFEwcCJSyynJhMAzX9HrT_sY_KkE1r9UGKDp32JX0DaLO0OtEgjXVZFDebHqOKrGEtoGQTnJsDR4IiELOIfl8OyciN7E5vsuH4HX58Q2Zgfxz6pbNOpzNLF8C33_h4CkjFonhMGj77BrdDISyek2fUPsVexNdys9emjfwiuUZlpHYwrfpXkbQAgJuQR5-tcuAcRyHn_GMAMltHe3nR3_7B8nMO-e1v52TkBHg7rVhq_JBF064R9YqyPUw5iYsNBhfq2L2JYVLNii7kk_93kFQiDBF1n7r7_kwbqubpYCLZ7s6G90BxXNCyDUbMn0UXgaDxDqvSlV8pMuXzEynLSN-2_GKseFOQkdAm1O0YO3ibKtiuUKH08Pgr0ZhTj0ZoFD3zBBBEI1HmkbLOi7y7ZXfrjteSomz-Qdf69pMBaiq7Rr117g7HFZRbzQMEzwlGBUNmX-dtD8iBqCxjZYhWvCHeF=w258-h251-no?authuser=0",
-              ),
+              child: Image.asset('assets/images/profile.jpg'),
             ),
           ),
         ),

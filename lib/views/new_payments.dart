@@ -21,6 +21,14 @@ class _PaymentsState extends State<Payments> {
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
+  final ButtonStyle style = ElevatedButton.styleFrom(
+    onPrimary: Colors.white,
+    textStyle: const TextStyle(
+      fontSize: 15,
+    ),
+    fixedSize: const Size(150, 40),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,40 +87,19 @@ class _PaymentsState extends State<Payments> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  style: style,
                   child: Container(
                     margin: const EdgeInsets.all(8),
                     child: const Text(
                       'Cancelar',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                      ),
                     ),
                   ),
-                  color: Colors.orange[600],
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
                 ),
-                RaisedButton(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  child: Container(
-                    margin: const EdgeInsets.all(8),
-                    child: const Text(
-                      'Criar',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
-                  color: Colors.orange[600],
+                ElevatedButton(
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
                       print('valid!');
@@ -128,7 +115,14 @@ class _PaymentsState extends State<Payments> {
                       print('invalid!');
                     }
                   },
-                )
+                  style: style,
+                  child: Container(
+                    margin: const EdgeInsets.all(8),
+                    child: const Text(
+                      'Criar',
+                    ),
+                  ),
+                ),
               ],
             )
           ],
