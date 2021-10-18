@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sesi_esporte/views/dark_controller.dart';
 import 'package:sesi_esporte/views/historic.dart';
-import 'package:sesi_esporte/views/create_payments.dart';
-import 'package:sesi_esporte/views/new_payments.dart';
 import 'package:sesi_esporte/views/payment_page.dart';
 import 'package:sesi_esporte/views/settings.dart';
 
@@ -50,24 +48,17 @@ class _HomePageState extends State<HomePage> {
     return AnimatedBuilder(
       animation: DarkController.instance,
       builder: (context, child) {
-        return MaterialApp(
-          theme: ThemeData(
-            brightness: DarkController.instance.isDarkMode
-                ? Brightness.dark
-                : Brightness.light,
-            primarySwatch: Colors.orange,
+        return Scaffold(
+          appBar: AppBar(
+            title: const Center(
+                child: Text(
+              'Sesi Esporte',
+              style: TextStyle(color: Colors.white),
+            )),
+            automaticallyImplyLeading: false,
           ),
-          home: Scaffold(
-            appBar: AppBar(
-              title: const Center(
-                  child: Text(
-                'Sesi Esporte',
-                style: TextStyle(color: Colors.white),
-              )),
-            ),
-            body: _kTabPages[_currentTabIndex],
-            bottomNavigationBar: bottomNavBar,
-          ),
+          body: _kTabPages[_currentTabIndex],
+          bottomNavigationBar: bottomNavBar,
         );
       },
     );

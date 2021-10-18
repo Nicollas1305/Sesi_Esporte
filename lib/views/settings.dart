@@ -33,7 +33,7 @@ class _SettingsState extends State<Settings> {
                             child: CircleAvatar(
                               radius: 30,
                               backgroundImage: NetworkImage(
-                                "https://lh3.googleusercontent.com/eH99aVaZyj3wswnAaW7ttaAMq1wHvY02mwEmXQOiP2DnrTa5k-hRMM2EpLkIw0QkyXASNV7DRra0glq310IEHpKkwB3qT7iIZHGShSOjNk3aDja5rF2ny-tt04CN-neNzpomCwxZE12HDtHMk4Sj23a_x4v9Qf9U5sBUtWLWdbqoQr7su5l3u7e3gEPXwADGHQ6m0g70vreIbz3YiXn_3draWPS_Y0wvTq3u_-roUHPj5JGaZyvERk0uP_W4vTsU7SrkRNAgGwl4sr5NMpGvv97I-sF2s0MD7tFbnXicq9xFLehb-g_EXlcGc9PxOAE7MUrmuDoSUYi6yMOyHzlZ4lCA0y1IzBL3w5N0lx7BNZ4PxRImIBf08j5y5tKwK-WvLBZQwjKR68DOOBX6hRgTcXvGHrnD9Lc5pK2oKfLV1Ko_1q6da9hngAazEFQ-gm-ww_JfVg7XzfUP091UZ9D5mm35rZS3xfrk3j7LxlYUEqIVhfJx7MzNcnRKQm5gZF-ya8MdVPv9bSNCrlqepLrDJp8OJAJ2P33IzHHBgTtD9Aot2Lr254nigbX22rBjyGwA1CtdzTLTKgqOgJd2HHSL2jyIPyvxIg1WTjrf1isJXAjM_GFWucv6rmj7rbxMT4uZs23g3U8xqlXv735ztlWnU7c0AQIrAmRwFLL_KinHEmOdL37bRMATRhN7UWKUZbZReN8UdI5ZrDTMy6Tf1j6SoFyOjw=w258-h251-no?authuser=0",
+                                "https://lh3.googleusercontent.com/DcLTPCvpaHOXmTDISS8ZW1aNYHia-9kTyfQPFNgFnj0xpt8ohwuqHFM6XMRqCjc7f5b6-1oXsi7mitqFmyh2WlEkDSx0l1U7ZT_vvvXxMv9Yj_al4eQuSuCAqryPv8NJd7ebEZ1HVKJe9qA2fMuYcmVeDijp5pp4LlF8wu6LuWThuKc3ucp7JY1W6CBHz0NaZpKrYMD-qq3R5wTrG1RJNP2rmbGmAvjiyGFJmavo15SRMv7gkLaa9tuT9wZHHdoOBZFEwcCJSyynJhMAzX9HrT_sY_KkE1r9UGKDp32JX0DaLO0OtEgjXVZFDebHqOKrGEtoGQTnJsDR4IiELOIfl8OyciN7E5vsuH4HX58Q2Zgfxz6pbNOpzNLF8C33_h4CkjFonhMGj77BrdDISyek2fUPsVexNdys9emjfwiuUZlpHYwrfpXkbQAgJuQR5-tcuAcRyHn_GMAMltHe3nR3_7B8nMO-e1v52TkBHg7rVhq_JBF064R9YqyPUw5iYsNBhfq2L2JYVLNii7kk_93kFQiDBF1n7r7_kwbqubpYCLZ7s6G90BxXNCyDUbMn0UXgaDxDqvSlV8pMuXzEynLSN-2_GKseFOQkdAm1O0YO3ibKtiuUKH08Pgr0ZhTj0ZoFD3zBBBEI1HmkbLOi7y7ZXfrjteSomz-Qdf69pMBaiq7Rr117g7HFZRbzQMEzwlGBUNmX-dtD8iBqCxjZYhWvCHeF=w258-h251-no?authuser=0",
                               ),
                             ),
                           ),
@@ -62,7 +62,6 @@ class _SettingsState extends State<Settings> {
                   ),
                   const AccountPage(),
                   buildNotifications(),
-                  //buildTheme(context),
                   SwitchListTile(
                       title: const Text('Tema'),
                       secondary:
@@ -89,7 +88,7 @@ class _SettingsState extends State<Settings> {
             child: Hero(
               tag: 'profile-image-tag',
               child: Image.network(
-                "https://lh3.googleusercontent.com/eH99aVaZyj3wswnAaW7ttaAMq1wHvY02mwEmXQOiP2DnrTa5k-hRMM2EpLkIw0QkyXASNV7DRra0glq310IEHpKkwB3qT7iIZHGShSOjNk3aDja5rF2ny-tt04CN-neNzpomCwxZE12HDtHMk4Sj23a_x4v9Qf9U5sBUtWLWdbqoQr7su5l3u7e3gEPXwADGHQ6m0g70vreIbz3YiXn_3draWPS_Y0wvTq3u_-roUHPj5JGaZyvERk0uP_W4vTsU7SrkRNAgGwl4sr5NMpGvv97I-sF2s0MD7tFbnXicq9xFLehb-g_EXlcGc9PxOAE7MUrmuDoSUYi6yMOyHzlZ4lCA0y1IzBL3w5N0lx7BNZ4PxRImIBf08j5y5tKwK-WvLBZQwjKR68DOOBX6hRgTcXvGHrnD9Lc5pK2oKfLV1Ko_1q6da9hngAazEFQ-gm-ww_JfVg7XzfUP091UZ9D5mm35rZS3xfrk3j7LxlYUEqIVhfJx7MzNcnRKQm5gZF-ya8MdVPv9bSNCrlqepLrDJp8OJAJ2P33IzHHBgTtD9Aot2Lr254nigbX22rBjyGwA1CtdzTLTKgqOgJd2HHSL2jyIPyvxIg1WTjrf1isJXAjM_GFWucv6rmj7rbxMT4uZs23g3U8xqlXv735ztlWnU7c0AQIrAmRwFLL_KinHEmOdL37bRMATRhN7UWKUZbZReN8UdI5ZrDTMy6Tf1j6SoFyOjw=w258-h251-no?authuser=0",
+                "https://lh3.googleusercontent.com/DcLTPCvpaHOXmTDISS8ZW1aNYHia-9kTyfQPFNgFnj0xpt8ohwuqHFM6XMRqCjc7f5b6-1oXsi7mitqFmyh2WlEkDSx0l1U7ZT_vvvXxMv9Yj_al4eQuSuCAqryPv8NJd7ebEZ1HVKJe9qA2fMuYcmVeDijp5pp4LlF8wu6LuWThuKc3ucp7JY1W6CBHz0NaZpKrYMD-qq3R5wTrG1RJNP2rmbGmAvjiyGFJmavo15SRMv7gkLaa9tuT9wZHHdoOBZFEwcCJSyynJhMAzX9HrT_sY_KkE1r9UGKDp32JX0DaLO0OtEgjXVZFDebHqOKrGEtoGQTnJsDR4IiELOIfl8OyciN7E5vsuH4HX58Q2Zgfxz6pbNOpzNLF8C33_h4CkjFonhMGj77BrdDISyek2fUPsVexNdys9emjfwiuUZlpHYwrfpXkbQAgJuQR5-tcuAcRyHn_GMAMltHe3nR3_7B8nMO-e1v52TkBHg7rVhq_JBF064R9YqyPUw5iYsNBhfq2L2JYVLNii7kk_93kFQiDBF1n7r7_kwbqubpYCLZ7s6G90BxXNCyDUbMn0UXgaDxDqvSlV8pMuXzEynLSN-2_GKseFOQkdAm1O0YO3ibKtiuUKH08Pgr0ZhTj0ZoFD3zBBBEI1HmkbLOi7y7ZXfrjteSomz-Qdf69pMBaiq7Rr117g7HFZRbzQMEzwlGBUNmX-dtD8iBqCxjZYhWvCHeF=w258-h251-no?authuser=0",
               ),
             ),
           ),
@@ -131,7 +130,9 @@ Widget buildLogout(context) {
       Icons.logout,
       color: Colors.orange,
     ),
-    onTap: () {},
+    onTap: () {
+      Navigator.pushReplacementNamed(context, "/login");
+    },
   );
 }
 /*

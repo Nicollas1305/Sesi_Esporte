@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sesi_esporte/views/home_page.dart';
 import 'package:sesi_esporte/views/settings.dart';
 
 class LoginPage extends StatefulWidget {
@@ -43,11 +44,14 @@ class _LoginPageState extends State<LoginPage> {
                   decoration: const InputDecoration(
                     prefixIcon: Icon(Icons.person),
                     border: OutlineInputBorder(),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.orange),
+                    ),
                     labelText: 'Usuário',
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 30,
                 height: 30,
               ),
@@ -69,6 +73,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   border: OutlineInputBorder(),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.orange),
+                  ),
                   labelText: 'Senha',
                 ),
               ),

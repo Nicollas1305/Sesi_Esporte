@@ -6,7 +6,7 @@ import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Payments extends StatefulWidget {
-  Payments({Key? key}) : super(key: key);
+  const Payments({Key? key}) : super(key: key);
 
   @override
   State<Payments> createState() => _PaymentsState();
