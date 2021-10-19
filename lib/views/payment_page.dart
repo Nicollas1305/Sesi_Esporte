@@ -25,7 +25,7 @@ class PaymentPage extends StatelessWidget {
                       return Payment(context);
                     });
               },
-              child: const Text("Novo Meio de Pagamernto"),
+              child: const Text("Novo Meio de Pagamento"),
               color: Colors.orange[600],
               textColor: Colors.white,
             ),
