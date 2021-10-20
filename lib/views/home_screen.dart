@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:sesi_esporte/widgets/cards/card_society_soccer_field.dart';
-import 'package:sesi_esporte/widgets/notification_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

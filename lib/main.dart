@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sesi_esporte/views/create_user.dart';
-import 'package:sesi_esporte/views/dark_controller.dart';
+import 'package:sesi_esporte/controller/dark_controller.dart';
 import 'package:sesi_esporte/views/home_page.dart';
 import 'package:sesi_esporte/views/login_page.dart';
 import 'package:sesi_esporte/views/new_payments.dart';
@@ -19,11 +19,12 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              buttonTheme: ButtonThemeData(),
+              //buttonTheme: ButtonThemeData(),
               brightness: DarkController.instance.isDarkMode
                   ? Brightness.dark
                   : Brightness.light,
               primarySwatch: Colors.orange,
+              //scaffoldBackgroundColor: Color(0xFF063970),
               hintColor: Colors.black,
             ),
             routes: {
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
               '/home': (context) => const HomePage(),
               '/newpayment': (context) => const Payments()
             },
-            home: const LoginPage(),
+            home: const HomePage(),
           );
         });
   }

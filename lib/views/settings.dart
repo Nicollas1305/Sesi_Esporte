@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
+import 'package:get/get.dart';
 import 'package:sesi_esporte/views/account_page.dart';
-import 'package:sesi_esporte/views/dark_controller.dart';
+import 'package:sesi_esporte/controller/dark_controller.dart';
 import 'package:sesi_esporte/views/login_page.dart';
 
 class Settings extends StatefulWidget {
@@ -24,7 +25,6 @@ class _SettingsState extends State<Settings> {
                   Card(
                     child: Container(
                       padding: const EdgeInsets.all(8),
-                      //height: 200,
                       child: ListTile(
                         leading: GestureDetector(
                           onTap: () => _showSecondPage(context),

@@ -29,11 +29,28 @@ class _PaymentsState extends State<Payments> {
     fixedSize: const Size(150, 40),
   );
 
+  final cardDecoration = const InputDecoration(
+    labelText: 'Número',
+    hintText: 'XXXX XXXX XXXX XXXX',
+    border: OutlineInputBorder(),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Colors.orange),
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Center(
+            child: Text(
+          'Sesi Esporte',
+          style: TextStyle(color: Colors.white),
+        )),
+        automaticallyImplyLeading: false,
+      ),
+      resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
-        //resizeToAvoidBottomInset: true,
         child: Center(
           child: SafeArea(
             child: Column(
@@ -48,39 +65,65 @@ class _PaymentsState extends State<Payments> {
                   cardHolderName: cardHolderName,
                   cvvCode: cvvCode,
                   showBackView: isCvvFocused,
-                  obscureCardNumber: true,
+                  obscureCardNumber: false,
                   obscureCardCvv: true,
+                  /////////
+                  //width: MediaQuery.of(context).size.width,
+                  ///////
                   onCreditCardWidgetChange: (CreditCardBrand) {},
                 ),
-                CreditCardForm(
-                  formKey: formKey,
-                  onCreditCardModelChange: onCreditCardModelChange,
-                  obscureCvv: true,
-                  obscureNumber: true,
-                  cardNumberDecoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Número',
-                    hintText: 'XXXX XXXX XXXX XXXX',
+                SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      CreditCardForm(
+                        formKey: formKey,
+                        onCreditCardModelChange: onCreditCardModelChange,
+                        obscureCvv: true,
+                        obscureNumber: true,
+                        cardNumberDecoration: const InputDecoration(
+                          labelText: 'Número',
+                          labelStyle: TextStyle(color: Colors.orange),
+                          hintText: 'XXXX XXXX XXXX XXXX',
+                          border: OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.orange),
+                          ),
+                        ),
+                        expiryDateDecoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.orange),
+                          ),
+                          labelText: 'Data de Expiração',
+                          labelStyle: TextStyle(color: Colors.orange),
+                          hintText: 'XX/XX',
+                        ),
+                        cvvCodeDecoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.orange),
+                          ),
+                          labelText: 'CVV',
+                          labelStyle: TextStyle(color: Colors.orange),
+                          hintText: 'XXX',
+                        ),
+                        cardHolderDecoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.orange),
+                          ),
+                          labelText: 'Nome Completo',
+                          labelStyle: TextStyle(color: Colors.orange),
+                          hintText: 'Nome completo',
+                        ),
+                        themeColor: Colors.orange,
+                        cardHolderName: '',
+                        cvvCode: '',
+                        cardNumber: '',
+                        expiryDate: '',
+                      ),
+                    ],
                   ),
-                  expiryDateDecoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Data de Expiração',
-                    hintText: 'XX/XX',
-                  ),
-                  cvvCodeDecoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'CVV',
-                    hintText: 'XXX',
-                  ),
-                  cardHolderDecoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Nome Completo',
-                  ),
-                  themeColor: Colors.orange,
-                  cardHolderName: '',
-                  cvvCode: '',
-                  cardNumber: '',
-                  expiryDate: '',
                 ),
                 const SizedBox(
                   height: 20,
@@ -105,6 +148,7 @@ class _PaymentsState extends State<Payments> {
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
                           print('valid!');
+                          print(cardHolderName);
                           Navigator.pop(context);
                           Navigator.pop(context);
                           ScaffoldMessenger.of(context).showSnackBar(

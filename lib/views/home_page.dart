@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sesi_esporte/views/dark_controller.dart';
+import 'package:sesi_esporte/controller/dark_controller.dart';
 import 'package:sesi_esporte/views/historic.dart';
 import 'package:sesi_esporte/views/payment_page.dart';
 import 'package:sesi_esporte/views/settings.dart';

@@ -5,9 +5,14 @@ import 'package:get/get_utils/get_utils.dart';
 import 'package:sesi_esporte/views/create_payments.dart';
 import 'package:sesi_esporte/views/new_payments.dart';
 
-class PaymentPage extends StatelessWidget {
+class PaymentPage extends StatefulWidget {
   const PaymentPage({Key? key}) : super(key: key);
 
+  @override
+  State<PaymentPage> createState() => _PaymentPageState();
+}
+
+class _PaymentPageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
