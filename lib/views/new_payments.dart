@@ -18,6 +18,8 @@ class _PaymentsState extends State<Payments> {
   String cardHolderName = '';
   String cvvCode = '';
   bool isCvvFocused = false;
+  OutlineInputBorder? border;
+  Card? card;
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -29,14 +31,14 @@ class _PaymentsState extends State<Payments> {
     fixedSize: const Size(150, 40),
   );
 
-  final cardDecoration = const InputDecoration(
-    labelText: 'Número',
-    hintText: 'XXXX XXXX XXXX XXXX',
-    border: OutlineInputBorder(),
-    focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.orange),
-    ),
-  );
+  @override
+  void initState() {
+    border = const OutlineInputBorder(
+        borderSide: BorderSide(
+      color: Colors.orange,
+    ));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -67,9 +69,7 @@ class _PaymentsState extends State<Payments> {
                   showBackView: isCvvFocused,
                   obscureCardNumber: false,
                   obscureCardCvv: true,
-                  /////////
-                  //width: MediaQuery.of(context).size.width,
-                  ///////
+                  isHolderNameVisible: true,
                   onCreditCardWidgetChange: (CreditCardBrand) {},
                 ),
                 SingleChildScrollView(
@@ -80,41 +80,32 @@ class _PaymentsState extends State<Payments> {
                         onCreditCardModelChange: onCreditCardModelChange,
                         obscureCvv: true,
                         obscureNumber: true,
-                        cardNumberDecoration: const InputDecoration(
+                        cardNumberDecoration: InputDecoration(
                           labelText: 'Número',
-                          labelStyle: TextStyle(color: Colors.orange),
+                          labelStyle: const TextStyle(color: Colors.orange),
                           hintText: 'XXXX XXXX XXXX XXXX',
-                          border: OutlineInputBorder(),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.orange),
-                          ),
+                          border: border,
+                          focusedBorder: border,
                         ),
-                        expiryDateDecoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.orange),
-                          ),
+                        expiryDateDecoration: InputDecoration(
+                          border: border,
+                          focusedBorder: border,
                           labelText: 'Data de Expiração',
-                          labelStyle: TextStyle(color: Colors.orange),
+                          labelStyle: const TextStyle(color: Colors.orange),
                           hintText: 'XX/XX',
                         ),
-                        cvvCodeDecoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.orange),
-                          ),
+                        cvvCodeDecoration: InputDecoration(
+                          border: border,
+                          focusedBorder: border,
                           labelText: 'CVV',
-                          labelStyle: TextStyle(color: Colors.orange),
+                          labelStyle: const TextStyle(color: Colors.orange),
                           hintText: 'XXX',
                         ),
-                        cardHolderDecoration: const InputDecoration(
-                          border: OutlineInputBorder(),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.orange),
-                          ),
-                          labelText: 'Nome Completo',
-                          labelStyle: TextStyle(color: Colors.orange),
-                          hintText: 'Nome completo',
+                        cardHolderDecoration: InputDecoration(
+                          border: border,
+                          focusedBorder: border,
+                          labelText: 'Titular do Cartão',
+                          labelStyle: const TextStyle(color: Colors.orange),
                         ),
                         themeColor: Colors.orange,
                         cardHolderName: '',
@@ -157,6 +148,9 @@ class _PaymentsState extends State<Payments> {
                               backgroundColor: Colors.greenAccent,
                             ),
                           );
+                          setState(() {
+                            CreatedCard();
+                          });
                         } else {
                           print('invalid!');
                         }
@@ -178,6 +172,16 @@ class _PaymentsState extends State<Payments> {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  Widget CreatedCard() {
+    return Card(
+      child: Column(
+        children: [
+          Text(cardHolderName),
+        ],
       ),
     );
   }

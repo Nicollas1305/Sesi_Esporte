@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sesi_esporte/views/new_payments.dart';
+import 'package:sesi_esporte/views/payment_page.dart';
 
 class CardBeachTennis extends StatefulWidget {
   const CardBeachTennis({Key? key}) : super(key: key);
@@ -32,7 +34,10 @@ class _CardBeachTennisState extends State<CardBeachTennis> {
                 FlatButton(
                   textColor: Colors.orange,
                   onPressed: () {
-                    /*Navigator.of(context).pushNamed('/home');*/
+                    /* Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ),
+                    ); */
                   },
                   child: const Text('Efetuar pagamento'),
                 ),

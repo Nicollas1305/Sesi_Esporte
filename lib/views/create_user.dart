@@ -206,7 +206,9 @@ class _CreateUserFormState extends State<CreateUserForm> {
                                           title:
                                               const Text('Termos e Condições'),
                                           content: const Text(
-                                              'Aqui será adicionado os termos e condições para aceite do Usuário'),
+                                            'Os serviços do Sesi Esporte são fornecidos pela pessoa jurdica ou física com a seguinte Razão Social/nome SERVICO SOCIAL DA INDUSTRIA-SESI-DEPARTAMENTO REGIONAL DO TOCANTINS com nome fantasia SESI/DR-TO inscrito no CNPJ/CPF sob o n° 03.777.433/0002-27 titular da propriedade intelectual sobre software,  website, aplicativos, conteúdos e demais ativos relacionados à plataforma Sesi Esporte.',
+                                            textAlign: TextAlign.justify,
+                                          ),
                                           actions: <Widget>[
                                             TextButton(
                                                 onPressed: () => Navigator.pop(

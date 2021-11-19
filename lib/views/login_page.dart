@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:sesi_esporte/views/home_page.dart';
 import 'package:sesi_esporte/views/settings.dart';
 
@@ -24,6 +25,10 @@ class _LoginPageState extends State<LoginPage> {
       textFieldFocusNode.canRequestFocus =
           false; // Prevents focus if tap on eye
     });
+  }
+
+  Future<ByteData> _login() async {
+    return await Future.delayed(const Duration(seconds: 3));
   }
 
   @override
